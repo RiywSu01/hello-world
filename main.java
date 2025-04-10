@@ -1,21 +1,37 @@
-public class xXx_sortyMcSortface_xXx {
-public static void main(String[] args){
-intz[] noodlez = {5,2,9,1,5,6};
-sortttt(noodlez);
-for(int i=0;i<noodlez.length;i++)
-System.out.print(noodlez[i]+" ");
-}
+public class ArraySorter {
+    public static void main(String[] args) {
+        int[] numbers = {5, 2, 9, 1, 5, 6};
+        sortAscending(numbers);
 
+        System.out.println("Sorted array:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+    }
 
-public static void sortttt(intz[]){
-for(int i=0;i<noodlez.length-1;i++){
-for(int j=0;j<noodlez.length-i-1;j++){
-if(noodlez[j]<noodlez[j+1]){  // Bug: wrong comparison for ascending sort
-int tmp= noodlez[j];
-noodlez[j]=noodlez[j+1];
-noodlez[j+1]=tmp;
-}
-}
-}
-}
+    public static void sortAscending(int[] array) {
+        int n = array.length;
+        boolean swapped;
+
+        // Bubble Sort algorithm
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+
+            for (int j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // Swap elements
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+
+                    swapped = true;
+                }
+            }
+
+            // If no elements were swapped, the array is already sorted
+            if (!swapped) {
+                break;
+            }
+        }
+    }
 }
